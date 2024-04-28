@@ -1,0 +1,324 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .header {
+    padding: 80px;
+    text-align: center;
+    background-image: url('/image/heading.jpg');
+    background-size: cover;
+    background-position: center;
+    color: green;
+  }
+  
+  .header h1 {
+    font-size: 40px;
+  }
+  
+  .navbar {
+    overflow: hidden;
+    background-color: green;
+    position: sticky;
+    top: 0;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  .navbar a.right {
+    float: right;
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .navbar a.active {
+    background-color: #666;
+    color: white;
+  }
+
+  
+  .side {
+    -ms-flex: 30%;
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  .main {   
+    -ms-flex: 70%;
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  /* Footer styles */
+  .footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 2rem 0;
+  }
+  
+  .footer h5 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: #ccc;
+  }
+  
+  .footer .btn-social-icon {
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .footer .row > div {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  .footer .btn-social-icon:hover {
+    background-color: #fff;
+    color: #343a40;
+  }
+  
+  .footer .btn-facebook {
+    background-color: #3b5998;
+  }
+  
+  .footer .btn-twitter {
+    background-color: #55acee;
+  }
+  
+  .footer .btn-linkedin {
+    background-color: #0077b5;
+  }
+  
+  .footer .btn-instagram {
+    background-color: #e1306c;
+  
+  }
+  
+  
+  .account-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .account-section h3 {
+    color: #333;
+  }
+  
+  .edit-button,
+  .add-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover,
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .experience-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .experience-list li {
+    margin-bottom: 10px;
+  }
+  
+  .service-listing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* Existing CSS content */
+  
+  /* Popup form styles */
+  .credential-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .credential-form {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Adjust width as needed */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .close-popup {
+    cursor: pointer;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-popup:hover {
+    color: #f44336; /* Or any other color you prefer */
+  }
+  
+  .popup-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .confirm-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: #e7e7e7; /* Light grey */
+    color: black;
+  }
+  
+  .popup-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Seller's Projects Section styles */
+  .projects-section {
+    margin: 20px 0;
+  }
+  
+  #search-projects {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .project-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #fafafa; /* Slightly off-white background */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional shadow for depth */
+  }
+  
+  .edit-button {
+    margin-left: 10px;
+    cursor: pointer;
+    color: orange; /* Cog icon color */
+    /* If using FontAwesome, uncomment the next line */
+    /* font-size: 1.5em; */
+  }
+  
+  .add-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    color: #333;
+    /* Aligns the '+' symbol vertically center */
+    text-align: center;
+    line-height: normal;
+  }
+  
+  .add-button:hover {
+    background-color: #e7e7e7;
+  }
+  
+  
+  /* Make sure the footer stays at the bottom */
+  .footer {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  /* Responsive layout adjustments */
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  

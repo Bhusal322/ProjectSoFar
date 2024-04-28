@@ -5,56 +5,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/allstyles.css">
+<style>
+    /* Add your CSS styles here */
+    .edit-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fefefe;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        text-align: center;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
 
 <div class="header">
-  <h1>Horticulture Website</h1>
+  <h1>Horticulture Website Buyer!!!</h1>
   <p>Make the world green</p>
 </div>
 
 <div class="navbar">
-  <a href="/html/home.html" >Home</a>
-  <a href="/html/seller/seller.html">Seller</a>
-  <a href="/html/buyer/buyer.html">Buyer</a>
-  <a href="#">Blog</a>
-  <a href="login.html" class="right">Log-in</a>
+    <a href="/html/home.html" class="nav-link">Home</a>
+    <a href="/html/buyer/myprojects.html" class="nav-link">My Projects</a>
+    <a href="/html/buyer/searchbuyer.html" class="nav-link">Search Sellers</a>
+   <a href="/html/buyer/buyer.html" class="nav-link">Post Project</a>
+    <a href="/html/buyer/myaccountbuyer.html" class="nav-link">My Account</a>
+  <a href="/html/login.html" class="right">Log-in</a>
 </div>
 
+<header>
+    <h1>My Account</h1>
+</header>
 
-    <div class="main">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <img src="/image/image7.jpg" alt="Yet another image" height="15%">
+<section class="profile-details">
+    <h2>Profile Details</h2>
+    <p>Name: John Doe</p>
+    <p>Email: john.doe@example.com</p>
+    <p>Phone: +1234567890</p>
+    <!-- Add more details as needed -->
 
+    <button onclick="openEditPopup()">Edit Details</button>
+</section>
 
-
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-
-      
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <img src="/image/header.jpg" alt="wohoo" >
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-   
-      <h5>Title description, Sep 2, 2017</h5>
-      <img src="/image/image5.jpg" alt="wohoo" >
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-
-      <h5>Title description, Sep 2, 2017</h5>
-      <img src="/image/image6.jpg" alt="wohoo" >
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-
-   
+<section class="edit-popup" id="edit-popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeEditPopup()">&times;</span>
+        <h2>Edit Profile</h2>
+        <form>
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-name" name="edit-name" value="John Doe"><br>
+            <label for="edit-email">Email:</label>
+            <input type="email" id="edit-email" name="edit-email" value="john.doe@example.com"><br>
+            <label for="edit-phone">Phone:</label>
+            <input type="tel" id="edit-phone" name="edit-phone" value="+1234567890"><br>
+            <!-- Add more fields as needed -->
+            <button type="submit">Save Changes</button>
+        </form>
     </div>
-  </div>
-  
-  <footer class="footer">
+</section>
+
+<script>
+    function openEditPopup() {
+        document.getElementById('edit-popup').style.display = 'block';
+    }
+
+    function closeEditPopup() {
+        document.getElementById('edit-popup').style.display = 'none';
+    }
+</script>
+
+<footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -96,7 +131,6 @@
         </div>
     </div>
 </footer>
-  
-  </body>
-  </html>
-  
+
+</body>
+</html>
