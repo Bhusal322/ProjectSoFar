@@ -87,12 +87,12 @@
 </div>
 
 <div class="navbar">
-    <a href="/html/home.html" class="nav-link">Home</a>
-    <a href="/html/buyer/myprojects.html" class="nav-link">My Projects</a>
-    <a href="/html/buyer/searchbuyer.html" class="nav-link">Search Sellers</a>
-    <a href="/html/buyer/buyer.html" class="nav-link">Post Project</a>
-    <a href="/html/buyer/myaccountbuyer.html" class="nav-link">My Account</a>
-    <a href="/html/login.html" class="right">Log-in</a>
+    <a href="{{ route('home') }}" class="nav-link">Home</a>
+    <a href="{{ route('buyer.home') }}" class="nav-link">Post Project</a>
+    <a href="{{ route('buyer.myprojects') }}" class="nav-link">My Projects</a>
+    <a href="{{ route('buyer.search') }}" class="nav-link">Search Sellers</a>
+    <a href="{{ route('buyer.myaccount') }}" class="nav-link">My Account</a>
+    <a href="{{ route('login') }}" class="right">Log-in</a>
 </div>
 
 <div class="main">

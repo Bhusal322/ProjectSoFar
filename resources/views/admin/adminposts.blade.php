@@ -90,9 +90,10 @@
         <p>Review and manage all user-submitted posts</p>
     </div>
     <div class="navbar">
-        <a href="#users">Manage Users</a>
-        <a href="#posts">Manage Posts</a>
-        <a href="#analytics">View Analytics</a>
+        <a href="{{ route('admin.accounts') }}">Admin Accounts</a>
+<a href="{{ route('admin.home') }}">Admin Home</a>
+<a href="{{ route('admin.myaccount') }}">Admin My Account</a>
+<a href="{{ route('admin.posts') }}">Admin Posts</a>
     </div>
 
     <div class="main">

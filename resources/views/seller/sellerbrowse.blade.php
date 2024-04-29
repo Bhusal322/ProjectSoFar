@@ -88,11 +88,11 @@
     </div>
 
     <div class="navbar">
-        <a href="/html/home.html">Home</a>
-        <a href="/html/seller/sellerbrowse.html">Browse</a>
-       <a href="/html/seller/seller.html">Sell</a>
-        <a href="/html/myaccount.html">My Account</a>
-      <a href="/html/login.html" class="right">Log-in</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('seller.home') }}" class="nav-link">Post product</a>
+        <a href="{{ route('seller.browse') }}" class="nav-link">Browse</a>
+        <a href="{{ route('seller.myaccount') }}" class="nav-link">My Account</a>
+        <a href="{{ route('login') }}" class="right">Log-in</a>
     </div>
     
 
