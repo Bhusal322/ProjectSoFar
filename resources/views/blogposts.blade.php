@@ -122,6 +122,10 @@
         <a href="{{ route('buyer.home') }}">Buyer</a>
         <a href="{{ route('blogposts') }}">Blog</a>
         <a href="{{ route('login') }}" class="right">Log-in</a>
+        <form action="{{ route('logout') }}" method="post">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
     </div>
 
     <div class="container">
@@ -129,7 +133,11 @@
             <div class="post-header">
                 <img src="avatar.jpg" alt="Avatar" class="avatar">
                 <div>
-                    <div class="post-author">John Doe</div>
+                    <div class="post-author">   @auth
+        {{ Auth::user()->first_name }}
+                @else
+        Guest
+    @endauth</div>
                     <div class="post-date">April 25, 2024</div>
                 </div>
             </div>
