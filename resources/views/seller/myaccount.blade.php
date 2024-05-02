@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Page Title</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/allstyles.css">
+    <title>My Account</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/allstyles.css">
 </head>
 <body>
 
@@ -21,67 +21,165 @@
     <a href="{{ route('login') }}" class="right">Log-in</a>
 </div>
 
-
 <div class="main">
-    <h2>My Account</h2>
-    <div class="account-details">
-        <p><strong>Username:</strong> johndoe</p>
-        <p><strong>Email:</strong> johndoe@example.com</p>
-        <p><strong>First Name:</strong> John</p>
-        <p><strong>Last Name:</strong> Doe</p>
-        <p><strong>Date of Birth:</strong> January 1, 1990</p>
-        <p><strong>Address:</strong> 123 Main Street, City, Country</p>
-        <!-- Add more account details here -->
-    </div>
-    <a href="edit-profile.html">Edit Profile</a>
-    <!-- Link to edit profile page -->
+    <h2>
+        @auth
+            {{ Auth::user()->first_name }}
+        @else
+            Guest
+        @endauth
+    </h2>
+    <h2>
+        @auth
+            {{ Auth::user()->email }}
+        @else
+            Guest
+        @endauth
+    </h2>
+    <h2>
+        @auth
+            {{ Auth::user()->type }}
+        @else
+            Guest
+        @endauth
+    </h2>
+
+
+    <!-- Display services associated with the logged-in user -->
+<!-- Display services in a table -->
+<!-- Display services in a table with cell borders -->
+
+
+
+
+<table style="width: 30%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Services</th>
+        </tr>
+    </thead>
+    <tbody>
+        @isset($services)
+            @forelse ($services as $service)
+                <tr>
+                    <td style="border: 1px solid black;">
+                        <strong>{{ $service->name }}</strong><br>
+                        <p>{{ $service->description }}</p>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td style="border: 1px solid black;">No services available.</td>
+                </tr>
+            @endforelse
+        @else
+            <tr>
+                <td style="border: 1px solid black;">No services available.</td>
+            </tr>
+        @endisset
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Add service form -->
+    <form method="POST" action="{{ route('services.store') }}">
+        @csrf
+        <div>
+            <label for="name">Service Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <button type="submit">Add Service</button>
+    </form>
 </div>
 
 
-  
-  <footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <h5>Company</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press Releases</a></li>
-                    <li><a href="#">Partnerships</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <h5>Legal</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Copyright Policy</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <h5>Support</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Help Center</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <h5>Follow Us</h5>
-                <ul class="list-unstyled list-inline">
-                    <li class="list-inline-item"><a href="#" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a></li>
-                </ul>
-            </div>
-        </div>
+
+
+<table style="width: 30%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Credentials</th>
+        </tr>
+    </thead>
+    <tbody>
+        @isset($credentials)
+            @forelse ($credentials as $credential)
+                <tr>
+                    <td style="border: 1px solid black;">
+                        <strong>{{ $credential->credential_name }}</strong><br>
+                        <p>{{ $credential->institution_name }}</p>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td style="border: 1px solid black;">No credentials available.</td>
+                </tr>
+            @endforelse
+        @else
+            <tr>
+                <td style="border: 1px solid black;">No credentials available.</td>
+            </tr>
+        @endisset
+    </tbody>
+</table>
+
+
+
+
+<!-- Add credential form -->
+<form method="POST" action="{{ route('credentials.store') }}">
+    @csrf
+    <div>
+        <label for="credential_name">Credential Name:</label>
+        <input type="text" id="credential_name" name="credential_name" required>
     </div>
-</footer>
-  
-  </body>
-  </html>
+    <div>
+        <label for="institution_name">Institution Name:</label>
+        <input type="text" id="institution_name" name="institution_name" required>
+    </div>
+    <button type="submit">Add Credential</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
   
