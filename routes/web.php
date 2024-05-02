@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\SellerController;
 
+//Navigation
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/blogposts', [HomeController::class, 'blogposts'])->name('blogposts');
 Route::get('/viewblogposts', [HomeController::class, 'blogposts'])->name('blogposts');
@@ -26,24 +27,61 @@ Route::get('/sellerbrowse', [SellerController::class, 'sellerbrowse'])->name('se
 
 
 
+//Signing Up
 use App\Http\Controllers\SignupController;
 
 Route::get('/signup', [SignupController::class, 'showForm'])->name('signup.form');
 Route::post('/signup', [SignupController::class, 'store'])->name('signup.submit');
 
 
-
+//Logging in
 use App\Http\Controllers\LoginController;
-
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::view('/blogposts', 'blogposts')->middleware('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+
+
+
+// Edit the homepage
 use App\Http\Controllers\EditableTextController;
 Route::get('/home', [EditableTextController::class, 'index'])->name('home');
 Route::get('/', [EditableTextController::class, 'index']);
 Route::post('/editable-text/update', [EditableTextController::class, 'update'])->name('editable-text.update');
 Route::post('/editable-text/delete', [EditableTextController::class, 'delete'])->name('editable-text.delete');
 Route::post('/editable-text/store', [EditableTextController::class, 'store'])->name('editable-text.store');
+
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CredentialController;
+
+// Displaying services and credentials
+Route::middleware(['auth'])->group(function () {
+    Route::get('/seller/myaccount', [ProfileController::class, 'myAccount'])->name('seller.myaccount');
+});
+
+// Storing services
+Route::post('/seller/myaccount/services', [ProfileController::class, 'store'])->name('services.store');
+
+// Storing credentials
+Route::post('/seller/myaccount/credentials', [ProfileController::class, 'CredStore'])->name('credentials.store');
+
+
+
+use App\Http\Controllers\BlogController;
+// Display the form
+
+
+
+
+
+
+
+
+
+
+
+
+
 

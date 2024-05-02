@@ -118,8 +118,11 @@
     </div>
     <div class="navbar">
         <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('seller.home') }}">Seller</a>
-        <a href="{{ route('buyer.home') }}">Buyer</a>
+        @if (session('user_type') === 'seller')
+    <a href="{{ route('seller.home') }}">Seller</a>
+@elseif (session('user_type') === 'buyer')
+    <a href="{{ route('buyer.home') }}">Buyer</a>
+@endif
         <a href="{{ route('blogposts') }}">Blog</a>
         <a href="{{ route('login') }}" class="right">Log-in</a>
         <form action="{{ route('logout') }}" method="post">
@@ -155,6 +158,21 @@
 
         <!-- More posts can be added here -->
     </div>
+
+
+
+
+    <h1>Upload</h1>
+<form method="POST" action="{{ route('store.blogpost') }}" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="image">
+    <input type="submit" name="Upload">
+</form>
+
+@foreach($photos as $photo)
+    <img src="{{ route('photos.show', $photo->id) }}" alt="Uploaded Image">
+@endforeach
+
 
  
 
