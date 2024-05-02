@@ -17,8 +17,8 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended('blogposts');
+            $request->session()->put('user_type', Auth::user()->type);
+            return redirect()->intended('home');
         }
 
         return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials']);
@@ -30,6 +30,7 @@ class LoginController extends Controller
     $request->session()->invalidate();
     return redirect()->route('home');
 }
+
 
 }
 

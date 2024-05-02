@@ -59,6 +59,13 @@
     <p>Phone: +1234567890</p>
     <!-- Add more details as needed -->
 
+
+
+
+
+
+    
+
     <button onclick="openEditPopup()">Edit Details</button>
 </section>
 

@@ -17,7 +17,7 @@ class SignupController extends Controller
             'email' => 'required|email|unique:users,email',
             'type' => 'required|in:buyer,seller',
             'newPassword' => 'required|string',
-            'confirmPassword' => 'required|string|same:newPassword',
+            //'confirmPassword' => 'required|string|same:newPassword',
         ]);
 
         // Hash the password

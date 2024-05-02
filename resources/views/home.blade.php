@@ -15,8 +15,11 @@
 
 <div class="navbar">
     <a href="{{ route('home') }}">Home</a>
+    @if (session('user_type') === 'seller')
     <a href="{{ route('seller.home') }}">Seller</a>
+@elseif (session('user_type') === 'buyer')
     <a href="{{ route('buyer.home') }}">Buyer</a>
+@endif
     <a href="{{ route('blogposts') }}">Blog</a>
     <a href="{{ route('login') }}" class="right">Log-in</a>
 </div>
