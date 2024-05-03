@@ -157,21 +157,9 @@
         </div>
 
         <!-- More posts can be added here -->
-    </div>
+    </div
 
 
-
-
-    <h1>Upload</h1>
-<form method="POST" action="{{ route('store.blogpost') }}" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="image">
-    <input type="submit" name="Upload">
-</form>
-
-@foreach($photos as $photo)
-    <img src="{{ route('photos.show', $photo->id) }}" alt="Uploaded Image">
-@endforeach
 
 
  

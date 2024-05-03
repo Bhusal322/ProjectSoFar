@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Authenticatable
 {
-    protected $table = 'users';
+    protected $table = 'persons';
 
     public $timestamps = false;
     protected $fillable = ['first_name', 'last_name', 'email', 'type', 'password'];
