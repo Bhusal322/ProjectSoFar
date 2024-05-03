@@ -66,7 +66,18 @@ Route::post('/seller/myaccount/services', [ProfileController::class, 'store'])->
 Route::post('/seller/myaccount/credentials', [ProfileController::class, 'CredStore'])->name('credentials.store');
 
 
+use App\Http\Controllers\ProjectController;
 
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+
+
+
+Route::post('/buyer/update', [BuyerController::class, 'update'])->name('buyer.update');
+
+use App\Http\Controllers\BlogController;
+
+Route::get('/blogposts', [BlogController::class, 'showPosts'])->name('blogposts');
+Route::post('/create-post', [BlogController::class, 'createPost'])->name('create.post');
 
 
 
