@@ -8,7 +8,6 @@ use App\Http\Controllers\SellerController;
 
 //Navigation
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/blogposts', [HomeController::class, 'blogposts'])->name('blogposts');
 Route::get('/viewblogposts', [HomeController::class, 'blogposts'])->name('blogposts');
 
 Route::get('/adminaccounts', [AdminController::class, 'adminaccounts'])->name('admin.accounts');
@@ -38,7 +37,6 @@ Route::post('/signup', [SignupController::class, 'store'])->name('signup.submit'
 use App\Http\Controllers\LoginController;
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-Route::view('/blogposts', 'blogposts')->middleware('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
@@ -67,10 +65,6 @@ Route::post('/seller/myaccount/services', [ProfileController::class, 'store'])->
 // Storing credentials
 Route::post('/seller/myaccount/credentials', [ProfileController::class, 'CredStore'])->name('credentials.store');
 
-
-
-use App\Http\Controllers\BlogController;
-// Display the form
 
 
 
