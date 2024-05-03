@@ -52,47 +52,19 @@
     <section class="project-grid">
         <h2>Previous Projects</h2>
         <div class="project-container">
-            <!-- Example project item -->
-            <div class="project-item">
-                <h3>Project Title</h3>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, fermentum.</p>
-                <p>Budget: $1000</p>
-                <p>Deadline: January 1, 2025</p>
-                <!-- Add more details as needed -->
-            </div>
-            <!-- Add more project items as needed -->
+            @foreach(auth()->user()->projects as $project)
+                <div class="project-item">
+                    <h3>{{ $project->title }}</h3>
+                    <p>Description: {{ $project->description }}</p>
+                    <p>Timelines: {{ $project->timelines }}</p>
+                    <!-- Add more details as needed -->
+                </div>
+            @endforeach
         </div>
     </section>
+    
 
-    <section class="project-grid">
-        <h2>Previous Projects</h2>
-        <div class="project-container">
-            <!-- Example project item -->
-            <div class="project-item">
-                <h3>Project Title</h3>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, fermentum.</p>
-                <p>Budget: $1000</p>
-                <p>Deadline: January 1, 2025</p>
-                <!-- Add more details as needed -->
-            </div>
-            <!-- Add more project items as needed -->
-        </div>
-    </section>
-
-    <section class="project-grid">
-        <h2>Previous Projects</h2>
-        <div class="project-container">
-            <!-- Example project item -->
-            <div class="project-item">
-                <h3>Project Title</h3>
-                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, fermentum.</p>
-                <p>Budget: $1000</p>
-                <p>Deadline: January 1, 2025</p>
-                <!-- Add more details as needed -->
-            </div>
-            <!-- Add more project items as needed -->
-        </div>
-    </section>
+    
   
   <footer class="footer">
     <div class="container">

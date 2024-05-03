@@ -34,67 +34,79 @@
 </head>
 <body>
 
-<div class="header">
-  <h1>Horticulture Website Buyer!!!</h1>
-  <p>Make the world green</p>
-</div>
-
-<div class="navbar">
-    <a href="{{ route('home') }}" class="nav-link">Home</a>
-    <a href="{{ route('buyer.home') }}" class="nav-link">Post Project</a>
-    <a href="{{ route('buyer.myprojects') }}" class="nav-link">My Projects</a>
-    <a href="{{ route('buyer.search') }}" class="nav-link">Search Sellers</a>
-    <a href="{{ route('buyer.myaccount') }}" class="nav-link">My Account</a>
-    <a href="{{ route('login') }}" class="right">Log-in</a>
-</div>
-
-<header>
-    <h1>My Account</h1>
-</header>
-
-<section class="profile-details">
-    <h2>Profile Details</h2>
-    <p>Name: John Doe</p>
-    <p>Email: john.doe@example.com</p>
-    <p>Phone: +1234567890</p>
-    <!-- Add more details as needed -->
-
-
-
-
-
-
+    <div class="header">
+        <h1>Horticulture Website Buyer!!!</h1>
+        <p>Make the world green</p>
+      </div>
+      
+      <div class="navbar">
+          <a href="{{ route('home') }}" class="nav-link">Home</a>
+          <a href="{{ route('buyer.home') }}" class="nav-link">Post Project</a>
+          <a href="{{ route('buyer.myprojects') }}" class="nav-link">My Projects</a>
+          <a href="{{ route('buyer.search') }}" class="nav-link">Search Sellers</a>
+          <a href="{{ route('buyer.myaccount') }}" class="nav-link">My Account</a>
+          <a href="{{ route('login') }}" class="right">Log-in</a>
+      </div>
+      
+      <header>
+          <h1>My Account</h1>
+      </header>
+      
     
-
-    <button onclick="openEditPopup()">Edit Details</button>
-</section>
-
-<section class="edit-popup" id="edit-popup">
-    <div class="popup-content">
-        <span class="close" onclick="closeEditPopup()">&times;</span>
-        <h2>Edit Profile</h2>
-        <form>
-            <label for="edit-name">Name:</label>
-            <input type="text" id="edit-name" name="edit-name" value="John Doe"><br>
-            <label for="edit-email">Email:</label>
-            <input type="email" id="edit-email" name="edit-email" value="john.doe@example.com"><br>
-            <label for="edit-phone">Phone:</label>
-            <input type="tel" id="edit-phone" name="edit-phone" value="+1234567890"><br>
-            <!-- Add more fields as needed -->
-            <button type="submit">Save Changes</button>
-        </form>
-    </div>
-</section>
-
-<script>
-    function openEditPopup() {
-        document.getElementById('edit-popup').style.display = 'block';
-    }
-
-    function closeEditPopup() {
-        document.getElementById('edit-popup').style.display = 'none';
-    }
-</script>
+    <section class="profile-details">
+        <h2>Profile Details</h2>
+        <p>First Name: {{ auth()->user()->first_name }}</p>
+        <p>Last Name: {{ auth()->user()->last_name }}</p>
+        <p>Email: {{ auth()->user()->email }}</p>
+        <p>Type: {{ auth()->user()->type }}</p>
+        <button onclick="openEditPopup()">Edit Details</button>
+    </section>
+    
+    <section class="edit-popup" id="edit-popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeEditPopup()">&times;</span>
+            <h2>Edit Profile</h2>
+            <form action="{{ route('buyer.update') }}" method="post">
+                @csrf <!-- Laravel CSRF protection -->
+                <label for="edit-first-name">First Name:</label>
+                <input type="text" id="edit-first-name" name="first_name" value="{{ auth()->user()->first_name }}" required><br>
+                @error('first_name')
+                    <span class="text-danger">{{ $message }}</span><br>
+                @enderror
+                
+                <label for="edit-last-name">Last Name:</label>
+                <input type="text" id="edit-last-name" name="last_name" value="{{ auth()->user()->last_name }}" required><br>
+                @error('last_name')
+                    <span class="text-danger">{{ $message }}</span><br>
+                @enderror
+                
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" name="email" value="{{ auth()->user()->email }}" required><br>
+                @error('email')
+                    <span class="text-danger">{{ $message }}</span><br>
+                @enderror
+                
+                <label for="edit-type">Type:</label>
+                <input type="text" id="edit-type" name="type" value="{{ auth()->user()->type }}" required><br>
+                @error('type')
+                    <span class="text-danger">{{ $message }}</span><br>
+                @enderror
+                
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </section>
+    
+      
+      <script>
+          function openEditPopup() {
+              document.getElementById('edit-popup').style.display = 'block';
+          }
+      
+          function closeEditPopup() {
+              document.getElementById('edit-popup').style.display = 'none';
+          }
+      </script>
 
 <footer class="footer">
     <div class="container">

@@ -98,17 +98,24 @@
 <div class="main">
     <section class="section">
         <h2>Project Posting</h2>
-        <form>
+        <form action="{{ route('projects.store') }}" method="post" enctype="multipart/form-data">
+            @csrf <!-- Laravel CSRF protection -->
             <label for="project-title">Title:</label>
-            <input type="text" id="project-title" name="project-title">
+            <input type="text" id="project-title" name="title" required>
+            
             <label for="project-description">Description:</label>
-            <textarea id="project-description" name="project-description"></textarea>
+            <textarea id="project-description" name="description" required></textarea>
+            
             <label for="project-photos">Photos:</label>
-            <input type="file" id="project-photos" name="project-photos" multiple>
+            <input type="file" id="project-photos" name="photos[]" multiple>
+            
             <label for="project-timelines">Timelines:</label>
-            <input type="text" id="project-timelines" name="project-timelines">
+            <input type="text" id="project-timelines" name="timelines">
+            
             <input type="submit" value="Post Project">
         </form>
+        
+        
     </section>
 
     <section class="section">
