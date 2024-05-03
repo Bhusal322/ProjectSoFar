@@ -24,3 +24,5 @@ class CreatePersonsTable extends Migration
         Schema::dropIfExists('persons');
     }
 }
+
+

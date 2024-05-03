@@ -65,8 +65,13 @@ Route::post('/seller/myaccount/services', [ProfileController::class, 'store'])->
 // Storing credentials
 Route::post('/seller/myaccount/credentials', [ProfileController::class, 'CredStore'])->name('credentials.store');
 
+use App\Http\Controllers\ImageController;
 
 
+Route::post('/images/upload', [ImageController::class, 'upload'])->name('images.upload');
+
+
+Route::get('/viewblogposts', [ImageController::class, 'index'])->name('blogposts');
 
 
 
