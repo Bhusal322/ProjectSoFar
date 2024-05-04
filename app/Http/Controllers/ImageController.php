@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Image;
@@ -18,12 +17,20 @@ class ImageController extends Controller
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $path = $image->storeAs('images', $filename, 'public');
 
-        $image = new Image;
-        $image->title = $request->title;
-        $image->file_path = $path;
-        $image->save();
+        $newImage = new Image;
+        $newImage->title = $request->title;
+        $newImage->file_path = $path;
+        $newImage->save();
 
-        return redirect()->back()->with('success', 'Image Uploaded Successfully.');
+        return redirect()->route('blogposts')->with('success', 'Image Uploaded Successfully.');
+    }
+
+    public function index()
+    {
+        $images = Image::all();
+        return view('blogposts', compact('images'));
     }
 }
+
+
 

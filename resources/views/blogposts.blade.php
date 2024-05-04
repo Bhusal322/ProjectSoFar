@@ -164,16 +164,78 @@
         @endforeach
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
+        <!-- More posts can be added here -->
+    </div
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+<body>
+<div class="container">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-    </footer>
+    @endif
+
+    <form action="{{ route('images.upload') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" name="image" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    <div class="row mt-5">
+        @foreach($images as $image)
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ asset('storage/' . $image->file_path) }}" class="card-img-top" alt="{{ $image->title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $image->title }}</h5>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+    
+
+<script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 </body>
 </html>
