@@ -97,66 +97,37 @@
     
 
     <div class="container">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search posts..." class="search-input">
-            <button class="search-btn">Search</button>
-        </div>
+    <div class="search-bar">
+        <form action="{{ route('seller.browse') }}" method="GET">
+            <input type="text" name="search" placeholder="Search posts by buyer's name..." class="search-input">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
 
-        <!-- Filter Options -->
-        <div class="filters">
-            <!-- Add your filter options here -->
-        </div>
-
-        <!-- Post Feed -->
-        <div class="post-feed">
-            <!-- Sample Post (Repeat for each post) -->
+    <div class="post-feed">
+        @forelse ($projects as $project)
             <div class="post">
-                <h2 class="post-title">Post Title</h2>
-                <img src="/image/sample-image.jpg" alt="Post Image" class="post-image">
-                <p class="post-description">Post description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="post-title">{{ $project->title }}</h2>
+                <img src="{{ asset('storage/' . $project->photos) }}" alt="Project Image" class="post-image">
+                <p class="post-description">{{ $project->description }}</p>
                 <div class="post-footer">
-                    <span class="post-author">Posted by: John Doe</span>
-                    <span class="post-date">Posted on: April 25, 2024</span>
+                    <span class="post-author">Posted by: {{ $project->buyer->first_name }} {{ $project->buyer->last_name }}</span>
+                    <span class="post-date">Posted on: {{ $project->created_at->format('F d, Y') }}</span>
                 </div>
             </div>
-
-            <div class="post-feed">
-                <!-- Sample Post (Repeat for each post) -->
-                <div class="post">
-                    <h2 class="post-title">Post Title</h2>
-                    <img src="/image/sample-image.jpg" alt="Post Image" class="post-image">
-                    <p class="post-description">Post description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <div class="post-footer">
-                        <span class="post-author">Posted by: John Doe</span>
-                        <span class="post-date">Posted on: April 25, 2024</span>
-                    </div>
-                </div>
-
-                <div class="post-feed">
-                    <!-- Sample Post (Repeat for each post) -->
-                    <div class="post">
-                        <h2 class="post-title">Post Title</h2>
-                        <img src="/image/sample-image.jpg" alt="Post Image" class="post-image">
-                        <p class="post-description">Post description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <div class="post-footer">
-                            <span class="post-author">Posted by: John Doe</span>
-                            <span class="post-date">Posted on: April 25, 2024</span>
-                        </div>
-                    </div>
+        @empty
+            <p>No projects found.</p>
+        @endforelse
+    </div>
+</div>
 
 
-                    <div class="post-feed">
-                        <!-- Sample Post (Repeat for each post) -->
-                        <div class="post">
-                            <h2 class="post-title">Post Title</h2>
-                            <img src="/image/sample-image.jpg" alt="Post Image" class="post-image">
-                            <p class="post-description">Post description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <div class="post-footer">
-                                <span class="post-author">Posted by: John Doe</span>
-                                <span class="post-date">Posted on: April 25, 2024</span>
-                            </div>
-                        </div>
+
+
+
+
+
+            
         </div>
     </div>
 

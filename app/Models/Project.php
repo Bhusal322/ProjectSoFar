@@ -15,4 +15,9 @@ class Project extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function buyer()
+    {
+        return $this->belongsTo(Person::class, 'buyer_id');
+    }
 }

@@ -79,204 +79,85 @@
       <a href="{{ route('admin.myaccount') }}">Admin My Account</a>
       <a href="{{ route('admin.posts') }}">Admin Posts</a>
     </div>
-
     <div class="main">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Category</th>
-                <th>Created Date</th>
-                <th>Actions</th>
-            </tr>
-            <!-- Dummy records -->
-            <tr>
-                <td>John Doe</td>
-                <td>johndoe@example.com</td>
-                <td>Seller</td>
-                <td>2023-01-01</td>
-                <td class="actions">
-                    <button class="approve">Approve</button>
-                    <button class="delete">Delete</button>
-                    <button class="block">Block</button>
-                    <button class="suspend">Suspend</button>
-                </td>
-            </tr>
-            <!-- Additional dummy records, repeat the above row with different names and details -->
-<tr>
-    <td>Jane Smith</td>
-    <td>janesmith@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-02</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Mike Johnson</td>
-    <td>mikejohnson@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-03</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Sarah Williams</td>
-    <td>sarahwilliams@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-04</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>David Brown</td>
-    <td>davidbrown@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-05</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Emma Davis</td>
-    <td>emmadavis@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-06</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>James Wilson</td>
-    <td>jameswilson@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-07</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Daniel Taylor</td>
-    <td>danieltaylor@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-08</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Elizabeth White</td>
-    <td>elizabethwhite@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-09</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>James Harris</td>
-    <td>jamesharris@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-10</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>John Moore</td>
-    <td>johnmoore@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-11</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Ella Jackson</td>
-    <td>ellajackson@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-12</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Sam Green</td>
-    <td>samgreen@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-13</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Harry Gray</td>
-    <td>harrygray@example.com</td>
-    <td>Buyer</td>
-    <td>2023-01-14</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-    <td>William Harris</td>
-    <td>williamharris@example.com</td>
-    <td>Seller</td>
-    <td>2023-01-15</td>
-    <td class="actions">
-      <button class="approve">Approve</button>
-      <button class="delete">Delete</button>
-      <button class="block">Block</button>
-      <button class="suspend">Suspend</button>
-    </td>
-  </tr>
-  <tr>
-        </table>
-    </div>
+   <div class="main">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+        @foreach ($persons as $person)
+        <tr>
+            <td>{{ $person->first_name }} {{ $person->last_name }}</td>
+            <td><a href="{{ route('person.details', $person->id) }}">{{ $person->email }}</a></td>
+            <td>{{ $person->type }}</td>
+            <td>{{ $person->created_at->toDateString() }}</td>
+            <td class="actions">
+                <button class="approve">Approve</button>
+                <!-- Delete button with data-id attribute -->
+                <button class="delete" data-id="{{ $person->id }}">Delete</button>
+                <button class="block">Block</button>
+                <button class="suspend">Suspend</button>
+            </td>
+        </tr>
+        <form id="delete-form-{{ $person->id }}" action="{{ route('person.delete', $person->id) }}" method="POST" style="display: none;">
+            @csrf
+            @method('DELETE')
+        </form>
+        @endforeach
+    </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all delete buttons
+    var deleteButtons = document.querySelectorAll('.delete');
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var personId = this.getAttribute('data-id');
+            if (confirm('Are you sure you want to delete this person?')) {
+                event.preventDefault();
+                document.getElementById('delete-form-' + personId).submit();
+            }
+        });
+    });
+});
+</script>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all delete buttons
+    var deleteButtons = document.querySelectorAll('.delete');
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var personId = this.getAttribute('data-id');
+            if (confirm('Are you sure you want to delete this person?')) {
+                event.preventDefault();
+                document.getElementById('delete-form-' + personId).submit();
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
 
     <footer class="footer">
         <p>Copyright © Your Website 2023</p>
     </footer>
 </body>
 </html>
+
+
+

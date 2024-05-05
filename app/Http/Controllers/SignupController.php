@@ -34,6 +34,13 @@ class SignupController extends Controller
            
         return redirect()->route('login')->with('success', 'User created successfully');
     }
+
+
+    public function index()
+    {
+        $persons = Person::all(); // Fetch all persons
+        return view('admin.adminaccounts', compact('persons')); // Pass the persons data to the view
+    }
 }
 
 
