@@ -15,6 +15,10 @@ Route::get('/adminhome', [AdminController::class, 'adminhome'])->name('admin.hom
 Route::get('/adminmyaccount', [AdminController::class, 'adminmyaccount'])->name('admin.myaccount');
 Route::get('/adminposts', [AdminController::class, 'adminposts'])->name('admin.posts');
 
+Route::delete('/delete-person/{id}', [AdminController::class, 'deletePerson'])->name('person.delete');
+Route::get('/person/{id}', [AdminController::class, 'showPersonDetails'])->name('person.details');
+
+
 Route::get('/buyer', [BuyerController::class, 'buyer'])->name('buyer.home');
 Route::get('/myaccountbuyer', [BuyerController::class, 'myaccountbuyer'])->name('buyer.myaccount');
 Route::get('/myprojects', [BuyerController::class, 'myprojects'])->name('buyer.myprojects');
@@ -31,6 +35,8 @@ use App\Http\Controllers\SignupController;
 
 Route::get('/signup', [SignupController::class, 'showForm'])->name('signup.form');
 Route::post('/signup', [SignupController::class, 'store'])->name('signup.submit');
+
+
 
 
 //Logging in
@@ -74,11 +80,30 @@ Route::post('/images/upload', [ImageController::class, 'upload'])->name('images.
 Route::get('/viewblogposts', [ImageController::class, 'index'])->name('blogposts');
 
 
+use App\Http\Controllers\ProjectController;
+
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+
+
+Route::post('/buyer/update', [BuyerController::class, 'update'])->name('buyer.update');
 
 
 
 
 
+Route::put('/update-service/{id}', [ProfileController::class, 'updateService'])->name('update-service');
+Route::delete('/delete-service/{id}', [ProfileController::class, 'deleteService'])->name('delete-service');
+
+
+Route::put('/update-credential/{id}', [ProfileController::class, 'updateCredential'])->name('update-credential');
+Route::delete('/delete-credential/{id}', [ProfileController::class, 'deleteCredential'])->name('delete-credential');
+
+
+
+Route::post('/store-experience', [ProfileController::class, 'storeExperience'])->name('store.experience');
+
+Route::put('/update-experience/{id}', [ProfileController::class, 'updateExperience'])->name('update-experience');
+Route::delete('/delete-experience/{id}', [ProfileController::class, 'deleteExperience'])->name('delete-experience');
 
 
 

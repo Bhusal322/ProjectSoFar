@@ -92,6 +92,7 @@
     </div>
 
     <div class="navbar">
+    <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('admin.accounts') }}">Admin Accounts</a>
         <a href="{{ route('admin.home') }}">Admin Home</a>
         <a href="{{ route('admin.myaccount') }}">Admin My Account</a>

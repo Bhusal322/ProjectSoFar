@@ -32,6 +32,7 @@ class ProjectController extends Controller
 
         return redirect()->route('buyer.myprojects')->with('success', 'Project created successfully');
     }
-}
 
+    
+}
 

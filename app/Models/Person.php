@@ -9,7 +9,6 @@ class Person extends Authenticatable
 {
     protected $table = 'persons';
 
-    public $timestamps = false;
     protected $fillable = ['first_name', 'last_name', 'email', 'type', 'password'];
 
     // Define the relationship with projects
@@ -29,4 +28,20 @@ class Person extends Authenticatable
     {
         return $this->hasMany(Credential::class, 'seller_id');
     }
+
+    public function experiences()
+{
+    return $this->hasMany(Experience::class, 'seller_id');
 }
+
+}
+
+
+
+
+
+
+
+
+
+

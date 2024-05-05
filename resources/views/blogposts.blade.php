@@ -119,40 +119,42 @@
     <div class="navbar">
         <a href="{{ route('home') }}">Home</a>
         @if (session('user_type') === 'seller')
-            <a href="{{ route('seller.home') }}">Seller</a>
-        @elseif (session('user_type') === 'buyer')
-            <a href="{{ route('buyer.home') }}">Buyer</a>
-        @endif
+    <a href="{{ route('seller.home') }}">Seller</a>
+@elseif (session('user_type') === 'buyer')
+    <a href="{{ route('buyer.home') }}">Buyer</a>
+@endif
         <a href="{{ route('blogposts') }}">Blog</a>
         <a href="{{ route('login') }}" class="right">Log-in</a>
         <form action="{{ route('logout') }}" method="post">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
+    @csrf
+    <button type="submit">Logout</button>
+</form>
     </div>
 
     <div class="container">
-        @foreach($posts as $post)
         <div class="post">
             <div class="post-header">
                 <img src="avatar.jpg" alt="Avatar" class="avatar">
                 <div>
-                    <div class="post-author">
-                        @if($post->user)
-                            {{ $post->user->first_name }}
-                        @else
-                            Guest
-                        @endif
-                    </div>
-                    <div class="post-date">{{ $post->created_at->format('F d, Y') }}</div>
+                    <div class="post-author">   @auth
+        {{ Auth::user()->first_name }}
+                @else
+        Guest
+    @endauth</div>
+
+
+
+
+
+
+
+    
+                    <div class="post-date">April 25, 2024</div>
                 </div>
             </div>
             <div class="post-content">
-                <h2>{{ $post->title }}</h2>
-                <p>{{ $post->content }}</p>
-                @if($post->image)
-                    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" class="post-image">
-                @endif
+                <p>This is a blog post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <img src="/image/image2.jpg" alt="Post Image" class="post-image">
             </div>
             <div class="post-actions">
                 <div class="action"><i class="fas fa-thumbs-up"></i>Like</div>
@@ -161,8 +163,6 @@
                 <div class="like-count">25 Likes</div>
             </div>
         </div>
-        @endforeach
-    </div>
 
         <!-- More posts can be added here -->
     </div
@@ -217,6 +217,28 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+</body>
+</html>
 
 
 

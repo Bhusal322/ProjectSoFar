@@ -21,8 +21,11 @@
     <a href="{{ route('buyer.home') }}">Buyer</a>
 @endif
 <a href="{{ route('blogposts') }}">Blog</a>
+<a href="{{ route('admin.home') }}">Admin</a>
     <a href="{{ route('login') }}" class="right">Log-in</a>
 </div>
+
+
 
 
 
